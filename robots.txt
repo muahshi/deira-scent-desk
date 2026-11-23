@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://muahshi.github.io/deira-scent-desk/sitemap.xml
