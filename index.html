@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta name="google-site-verification" content="bwr293qaZ-JvbbZB3LGv8tH9Yb7wCioBcYJA-TRQ5Lc" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="bwr293qaZ-JvbbZB3LGv8tH9Yb7wCioBcYJA-TRQ5Lc" />
   <title>Deira Scent Desk | Dubai Perfume Wholesale Exporter — Lattafa, Armaf, Rasasi & Reef</title>
   <meta name="description" content="Source 100% authentic Lattafa, Armaf, Rasasi, and Reef perfumes in bulk from Deira, Dubai. Mixed cartons, live video QC, and cargo handover for India & global buyers." />
   <meta property="og:title" content="Deira Scent Desk | Direct Dubai Wholesale Sourcing for Arabic Perfumes" />
@@ -333,12 +333,18 @@
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
             <div class="flex items-center gap-2 text-emerald-900 font-bold text-sm">
               <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-600"></i>
-              Inquiry Ready — Copy &amp; Send on WhatsApp
+              Inquiry Ready — Send on WhatsApp
             </div>
-            <button id="copySummaryBtn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-700 text-white text-xs font-semibold hover:bg-emerald-800 transition-colors">
-              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
-              Copy Message
-            </button>
+            <div class="flex flex-wrap gap-2">
+              <a id="waDirectLink" href="https://wa.me/971523736152" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-600 text-white text-xs font-bold hover:bg-emerald-700 transition-colors">
+                <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+                Send on WhatsApp (+971 52 373 6152)
+              </a>
+              <button id="copySummaryBtn" type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-stone-800 text-white text-xs font-semibold hover:bg-stone-900 transition-colors">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                Copy Message
+              </button>
+            </div>
           </div>
           <pre id="inquirySummaryText" class="whitespace-pre-wrap text-xs sm:text-sm text-stone-800 bg-white p-4 rounded-xl border border-emerald-200 font-sans"></pre>
         </div>
@@ -384,7 +390,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
       <div>
         <span class="font-serif-display font-bold text-white text-base">Deira Scent Desk</span>
-        <p class="mt-1">Murshid Bazar, Deira, Dubai, United Arab Emirates &bull; B2B Wholesale Perfume Sourcing</p>
+        <p class="mt-1">Murshid Bazar, Deira, Dubai, UAE &bull; WhatsApp: <a href="https://wa.me/971523736152" target="_blank" rel="noopener noreferrer" class="text-amber-400 hover:underline">+971 52 373 6152</a></p>
       </div>
       <p>&copy; 2026 Deira Scent Desk. All rights reserved.</p>
     </div>
@@ -570,7 +576,8 @@
       const phone = document.getElementById('videoBuyerPhone').value.trim();
       const slot = document.getElementById('videoSlot').value;
       const msgBox = document.getElementById('videoConfirmMsg');
-      msgBox.textContent = `Slot requested for ${slot}. Our Deira desk will ping ${phone} on WhatsApp 15 mins before the video QC call.`;
+      const waText = encodeURIComponent(`Hi Deira Scent Desk, I want to book a Live Video Stock Check for ${slot}. My WhatsApp: ${phone}`);
+      msgBox.innerHTML = `Slot requested for <strong>${slot}</strong>. <a href="https://wa.me/971523736152?text=${waText}" target="_blank" rel="noopener noreferrer" class="underline font-bold text-emerald-800 ml-1">Open WhatsApp Now &rarr;</a>`;
       msgBox.classList.remove('hidden');
     });
 
@@ -597,6 +604,7 @@
       ].join('\n');
 
       document.getElementById('inquirySummaryText').textContent = summary;
+      document.getElementById('waDirectLink').href = `https://wa.me/971523736152?text=${encodeURIComponent(summary)}`;
       document.getElementById('inquiryResultBox').classList.remove('hidden');
       showToast('Wholesale inquiry summary generated!');
     });
